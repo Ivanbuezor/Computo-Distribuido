@@ -14,54 +14,55 @@
 
 # Podemos escribir una función que nos permita saber si un corte es consistente o no con los relojes vectoriales de los eventos en la frontera del corte como input
 
-# In[61]:
+# In[78]:
 
 
 import numpy as np
 
 
-# In[73]:
+# In[98]:
 
 
 def corte(x):
     v=np.transpose(x)
     y=np.diag(v) #diagonal de la matriz que contiene los relojes
     lon = len(v[1]) #tamaño de los vectores
-    for i in range(0,lon): 
-        a = np.array(v[i] <= y[i]) #Comparamos los valores de los relojes
+    value=True
+    count= 0
+    while (value==True and count < lon):
+        a = np.array(v[count] <= y[count]) #Comparamos los valores de los relojes
         if ((a==True).all() != True): #Si detecta inconsistencias
             message="el corte no es consistente"
             value=False
-            break
         else:
-            if i == (lon-1):#Si no detecta inconsistencias
                     message="el corte es consistente"
                     value=True
+                    count = count+1
     return(message) #,value)
 
 
-# In[74]:
+# In[99]:
 
 
 relojes = np.array([(3,1),(0,2)])
 corte(relojes)
 
 
-# In[75]:
+# In[100]:
 
 
 relojes = np.array([(6,3),(0,2)])
 corte(relojes)
 
 
-# In[76]:
+# In[101]:
 
 
 relojes = np.array([(3,1,0),(2,2,0),(0,0,1)])
 corte(relojes)
 
 
-# In[77]:
+# In[102]:
 
 
 relojes = np.array([(5,1,2),(2,2,0),(0,0,1)])
