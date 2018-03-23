@@ -1,0 +1,7 @@
+Tarea 3 : Sistemas auto-estabilizantes
+En la demostración del algoritmo de Dijskstra, ¿cuál es la relación que deben cumplir N y K?
+En el segundo punto del apartado de convergencia de la demostración, se plantea que hay N+1 procesos con K estados.  
+Se menciona que por el pidgeonhole principle , almenos 1 elemento j no debe ser el estado inicial de ningún proceso. 
+El pidgeonhole principle  nos dice que si existen m palomas y n agujeros, con m>n, entonces al menos 2 palomas deben de estar en 
+el mismo agujero. En el caso de la demostración, como un proceso no puede estar en 2 estados entonces hay un estado que no está 
+en ningún proceso, por lo que entonces: K > N+1.
